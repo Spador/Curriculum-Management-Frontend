@@ -137,7 +137,7 @@ The frontend communicates with the backend through the following endpoints:
 *User registration form with validation.*
 
 ### Course Listing
-![Course Listing](screenshots/courses.png)
+![Course Listing](screenshots/enrolled.png)
 *List of available courses and lessons.*
 
 ### Video Player
