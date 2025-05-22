@@ -1,70 +1,164 @@
-# Getting Started with Create React App
+# Curriculum Management System Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive web application for managing educational courses and content, built with React and integrated with a Spring Boot + Neo4j backend.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🔐 **Secure Authentication**
+  - User registration with validation
+  - Secure login with Basic Authentication
+  - Protected routes for authenticated users
 
-### `npm start`
+- 📚 **Course Management**
+  - Browse available courses
+  - View course details and lessons
+  - Enroll in courses
+  - Track enrolled courses
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🎥 **Video Learning**
+  - Integrated YouTube video player
+  - Seamless video playback
+  - Organized lesson structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 🎨 **Modern UI/UX**
+  - Clean and intuitive interface
+  - Responsive design using Bootstrap
+  - Loading spinners for better UX
+  - Form validation with visual feedback
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend Framework**: React 18.3.1
+- **Routing**: React Router v6
+- **UI Components**: 
+  - Bootstrap 5.3.3
+  - React Bootstrap
+  - FontAwesome icons
+- **HTTP Client**: Axios
+- **Video Player**: React Player
+- **State Management**: React Context API
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 or higher)
+- npm or yarn
+- Backend server running on `http://localhost:8080`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd neo4j-application
+```
 
-### `npm run eject`
+2. Install dependencies:
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start the development server:
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application will be available at `http://localhost:3000`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+src/
+├── api/              # API configuration
+├── components/       # React components
+│   ├── course/      # Course-related components
+│   ├── enrolledCourses/ # Enrolled courses view
+│   ├── header/      # Header component
+│   ├── home/        # Home page
+│   ├── login/       # Authentication
+│   ├── register/    # User registration
+│   ├── spinner/     # Loading spinner
+│   └── video/       # Video player
+├── context/         # React Context
+├── hooks/           # Custom React hooks
+└── images/          # Static images
+```
 
-## Learn More
+## Key Features in Detail
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Authentication
+- Secure user registration with validation rules:
+  - Name validation
+  - Username requirements (8-20 characters)
+  - Password requirements (8+ chars, special chars, numbers)
+  - Password confirmation
+- Basic Authentication for login
+- Protected routes using `RequiredAuth` component
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Course Management
+- View available courses
+- Course details including:
+  - Course title
+  - Instructor information
+  - Lesson list
+- Enrollment functionality
+- Enrolled courses tracking
 
-### Code Splitting
+### Video Learning
+- YouTube video integration
+- Responsive video player
+- Lesson-based video organization
+- Direct access to course videos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Integration
 
-### Analyzing the Bundle Size
+The frontend communicates with the backend through the following endpoints:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Authentication:
+  - POST `/api/v1/auth/register` - User registration
+  - GET `/api/v1/auth/me` - User authentication
 
-### Making a Progressive Web App
+- Courses:
+  - GET `/api/v1/courses/{id}` - Get course details
+  - POST `/api/v1/enrolments` - Enroll in a course
+  - GET `/api/v1/enrolments` - Get enrolled courses
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Screenshots
 
-### Advanced Configuration
+### Home Page
+![Home Page](screenshots/home.png)
+*Welcome page showing the main dashboard and navigation options.*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Login Page
+![Login Page](screenshots/login.png)
+*Secure login form for user authentication.*
 
-### Deployment
+### Registration Page
+![Registration Page](screenshots/register.png)
+*User registration form with validation.*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Course Listing
+![Course Listing](screenshots/courses.png)
+*List of available courses and lessons.*
 
-### `npm run build` fails to minify
+### Video Player
+![Video Player](screenshots/video.png)
+*Integrated YouTube video player for course lessons.*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Spring Boot team for the backend framework
+- Neo4j team for the graph database
+- React team for the frontend framework
+- Bootstrap team for the UI components
