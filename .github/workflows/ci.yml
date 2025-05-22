@@ -1,0 +1,15 @@
+name: Frontend CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Node setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install & Test
+        run: |
+          npm ci
+          npm test 
